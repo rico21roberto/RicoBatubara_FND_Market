@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Market</title>
+    <style>
+        table,
+        td,
+        th,
+        tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="max-width: 75vw;">
+        <fieldset>
+            <legend>Add Product</legend>
+            <form id="form-product">
+                <input type="text" placeholder="Product Name">
+                <input type="text" placeholder="Product Preview">
+                <select id="category" onchange="handleDate()">
+                    <option value="null" selected>Choose Category</option>
+                    <option value="General">General</option>
+                    <option value="FnB">FnB</option>
+                </select>
+                <input type="number" id="stock" placeholder="Stock">
+                <input type="number" id="price" placeholder="Price">
+                <input type="date" id="expDate" disabled placeholder="ExpDate">
+            </form>
+            <button type="button" onclick="handleSubmit()">Submit Product</button>
+        </fieldset>
+        <fieldset>
+            <legend>Filter Data</legend>
+            <form id="filter">
+                <input type="text" placeholder="SKU">
+                <input type="text" placeholder="Product Name">
+                <select id="category">
+                    <option value="null" selected>Choose Category</option>
+                    <option value="General">General</option>
+                    <option value="FnB">FnB</option>
+                </select>
+                <input type="number" id="price" placeholder="Price" >
+                <button type="button" onclick="handleFilter()">Search</button>
+                <button type="button" onclick="handleReset()">Reset</button>
+            </form>
+        </fieldset>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>SKU</th>
+                    <th>Preview</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Stock</th>
+                    <th>Price</th>
+                    <th>ExpDate</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="display">
+
+            </tbody>
+        </table>
+        <fieldset>
+            <legend>Cart List</legend>
+            <button type="button" onclick="handleDelCart()">Delete Selected</button>
+            <form id="cartForm">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>SKU</th>
+                            <th>Preview</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Sub.Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartlist">
+
+                        
+                    </tbody>
+                </table>
+            </form>
+        </fieldset>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
